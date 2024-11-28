@@ -27,6 +27,9 @@ export default class Funcionario {
     }
 
     //Getters
+    getTaxaHoraria(): number {
+        return this.taxaHoraria;
+    }
 
     // Setters
     setHorasTrabalhadas(horasTrabalhadas: number[]) {
@@ -34,12 +37,18 @@ export default class Funcionario {
     }
 
     //Metodos
-    registrarHoras() {
-        
+    registrarHoras(horaTrabalhada: number) {
+        this.horasTrabalhadas?.push(horaTrabalhada);
     }
 
-    calcularSalarioMensal() {
-        console.log("salario aqui");
+    calcularSalarioMensal(): number{
+        let horaTotal = 0;
+
+        this.horasTrabalhadas?.forEach(hora => {
+            horaTotal = horaTotal + hora;
+        })
+
+        return horaTotal ? horaTotal * this.taxaHoraria : 0
     }
 
     getDetalhes(): string {

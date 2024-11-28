@@ -4,4 +4,6 @@ const funcionario: Funcionario = new Funcionario("monica couto", "desenvolvedora
 
 funcionario.setHorasTrabalhadas([8]); // seto as horas trabalhadas
 
+funcionario.registrarHoras(8); // registro mais horas trabalhadas
+
 console.log(funcionario.getDetalhes()); // chamo o método getDeatalhes que retorna as informações do funcionário
