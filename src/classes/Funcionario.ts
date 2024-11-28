@@ -35,7 +35,7 @@ export default class Funcionario {
 
     //Metodos
     registrarHoras() {
-
+        
     }
 
     calcularSalarioMensal() {
