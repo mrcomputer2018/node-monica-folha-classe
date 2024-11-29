@@ -8,7 +8,7 @@ export default class Funcionario {
     private horasTrabalhadas: number[] | null;
 
     constructor(nome: string, cargo: string, taxaHoraria: number) {
-        this.id = v4();
+        this.id = v4().substring(0, 4); // para ter 4 caractyesres
         this.nome = nome;
         this.cargo = cargo;
         this.taxaHoraria = taxaHoraria;
