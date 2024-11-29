@@ -27,14 +27,21 @@ export default class Funcionario {
     }
 
     //Getters
+    getNome(): string {
+        return this.nome;
+    }
+
     getTaxaHoraria(): number {
         return this.taxaHoraria;
     }
 
     // Setters
-    setHorasTrabalhadas(horasTrabalhadas: number[]) {
-        this.horasTrabalhadas = horasTrabalhadas;
-    }
+    setHorasTrabalhadas(horaTrabalhada: number) {
+            if (this.horasTrabalhadas === null) {
+                this.horasTrabalhadas = [];
+            }
+            this.horasTrabalhadas.push(horaTrabalhada);
+        }
 
     //Metodos
     adicionarFuncionario() {
@@ -55,12 +62,16 @@ export default class Funcionario {
     registrarHoras(horaTrabalhada: number, listaObjeto: Funcionario[], nome: string): Funcionario | null {
         let funcionarioEncontrado = this.localizarFuncionarioPorNome(nome, listaObjeto);
 
+        console.log(">>> Funcionario Encontrado: " + funcionarioEncontrado?.getDetalhes());
+
        if(funcionarioEncontrado === null) {
             return null;
        }
 
-        funcionarioEncontrado.horasTrabalhadas?.push(horaTrabalhada);
+        funcionarioEncontrado.setHorasTrabalhadas(horaTrabalhada);
 
+        console.log(">>> Horas Trabalhadas: " + funcionarioEncontrado.horasTrabalhadas);
+        console.log(">>> Funcionario Encontrado: " + funcionarioEncontrado.getDetalhes());
         return funcionarioEncontrado;
     }
 

@@ -1,15 +1,22 @@
 import Funcionario from './classes/Funcionario';
 
-const listaFuncionarios: Funcionario[] = [];
+let listaFuncionarios: Funcionario[] = [];
 
 const funcionario: Funcionario = new Funcionario("monica couto", "desenvolvedora", 100); // crio um objeto do tipo Funcionario
 
 listaFuncionarios.push(funcionario); // adiciono o objeto a lista de funcionários
 
-funcionario.registrarHoras(8 , listaFuncionarios,"monica couto"); // registro as horas trabalhadas
+// registro as horas trabalhadas
+const funcionarioHoraRegistrada = funcionario.registrarHoras(8 , listaFuncionarios, "monica couto");
 
-console.log(listaFuncionarios); // imprimo a lista de funcionários
+listaFuncionarios = listaFuncionarios.map(funcionario => { 
+    if(funcionario.getNome() === "monica couto") {
+        return funcionarioHoraRegistrada;
+    } else {
+        return funcionario;
+    }
+}).filter(funcionario => funcionario !== null) as Funcionario[];
 
-funcionario.setHorasTrabalhadas([8]); // seto as horas trabalhadas
+console.log("Lista de Funcionarios" + listaFuncionarios); // imprimo a lista de funcionários
 
-console.log(funcionario.getDetalhes()); // chamo o método getDeatalhes que retorna as informações do funcionário
+console.log(">>> GetDetalhes: " + funcionario.getDetalhes()); // chamo o método getDeatalhes que retorna as informações do funcionário
