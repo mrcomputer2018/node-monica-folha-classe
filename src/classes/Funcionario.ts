@@ -37,6 +37,23 @@ export default class Funcionario {
     }
 
     //Metodos
+   /*  Descrição
+
+    Descrição:
+    Refatore a função adicionarFuncionario para utilizar a classe Funcionario. 
+    Ao invés de criar um objeto literal, instancie a classe Funcionario e adicione a 
+    instância à lista de funcionários.
+
+    Objetivo:
+
+    Substituir a criação de objetos literais pela instância da classe Funcionario.
+
+    Garantir que a lista de funcionários seja atualizada com objetos do tipo Funcionario. */
+
+    adicionarFuncionario() {
+
+    }
+
     registrarHoras(horaTrabalhada: number) {
         this.horasTrabalhadas?.push(horaTrabalhada);
     }
@@ -52,6 +69,9 @@ export default class Funcionario {
     }
 
     getDetalhes(): string {
-        return `Nome: ${this.nome}, Cargo: ${this.cargo}, horas trabalhadas: ${this.horasTrabalhadas}, Salário: ${this.calcularSalarioMensal()}`;
+        return `\nNome: ${this.nome}` +
+        `\nCargo: ${this.cargo}` +
+        `\nhoras trabalhadas: ${this.horasTrabalhadas}` +
+        `\nSalário: ${this.calcularSalarioMensal()}`;
     }
 }
