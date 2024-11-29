@@ -43,6 +43,7 @@ export default class Funcionario {
 
     localizarFuncionarioPorNome(nome: string, listaFuncionarios: Funcionario[]): Funcionario | null {
         const funcionario = listaFuncionarios.find(funcionario => funcionario.nome === nome);
+        
         if (funcionario) {
             return funcionario;
         } else {
