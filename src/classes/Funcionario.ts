@@ -23,7 +23,7 @@ export default class Funcionario {
         this.nome = nome;
         this.cargo = cargo;
         this.taxaHoraria = taxaHoraria;
-        this.horasTrabalhadas = null;
+        this.horasTrabalhadas = [];
     }
 
     //Getters
@@ -37,11 +37,10 @@ export default class Funcionario {
 
     // Setters
     setHorasTrabalhadas(horaTrabalhada: number) {
-            if (this.horasTrabalhadas === null) {
-                this.horasTrabalhadas = [];
-            }
+        if (this.horasTrabalhadas) {
             this.horasTrabalhadas.push(horaTrabalhada);
         }
+    }
 
     //Metodos
     adicionarFuncionario() {

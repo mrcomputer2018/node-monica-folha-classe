@@ -17,6 +17,8 @@ listaFuncionarios = listaFuncionarios.map(funcionario => {
     }
 }).filter(funcionario => funcionario !== null) as Funcionario[];
 
+funcionario.registrarHoras(8, listaFuncionarios, "monica couto");
+
 console.log("Lista de Funcionarios" + listaFuncionarios); // imprimo a lista de funcionários
 
 console.log(">>> GetDetalhes: " + funcionario.getDetalhes()); // chamo o método getDeatalhes que retorna as informações do funcionário
