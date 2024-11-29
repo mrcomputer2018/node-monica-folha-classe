@@ -6,6 +6,8 @@ const funcionario: Funcionario = new Funcionario("monica couto", "desenvolvedora
 
 listaFuncionarios.push(funcionario); // adiciono o objeto a lista de funcionários
 
+funcionario.registrarHoras(8 , listaFuncionarios,"monica couto"); // registro as horas trabalhadas
+
 console.log(listaFuncionarios); // imprimo a lista de funcionários
 
 funcionario.setHorasTrabalhadas([8]); // seto as horas trabalhadas

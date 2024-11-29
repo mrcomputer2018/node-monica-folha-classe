@@ -37,25 +37,30 @@ export default class Funcionario {
     }
 
     //Metodos
-   /*  Descrição
-
-    Descrição:
-    Refatore a função adicionarFuncionario para utilizar a classe Funcionario. 
-    Ao invés de criar um objeto literal, instancie a classe Funcionario e adicione a 
-    instância à lista de funcionários.
-
-    Objetivo:
-
-    Substituir a criação de objetos literais pela instância da classe Funcionario.
-
-    Garantir que a lista de funcionários seja atualizada com objetos do tipo Funcionario. */
-
     adicionarFuncionario() {
 
     }
 
-    registrarHoras(horaTrabalhada: number) {
-        this.horasTrabalhadas?.push(horaTrabalhada);
+    localizarFuncionarioPorNome(nome: string, listaFuncionarios: Funcionario[]): Funcionario | null {
+        const funcionario = listaFuncionarios.find(funcionario => funcionario.nome === nome);
+        if (funcionario) {
+            return funcionario;
+        } else {
+            console.log("Funcionário não encontrado!!!");
+            return null;
+        }
+    }
+
+    registrarHoras(horaTrabalhada: number, listaObjeto: Funcionario[], nome: string): Funcionario | null {
+        let funcionarioEncontrado = this.localizarFuncionarioPorNome(nome, listaObjeto);
+
+       if(funcionarioEncontrado === null) {
+            return null;
+       }
+
+        funcionarioEncontrado.horasTrabalhadas?.push(horaTrabalhada);
+
+        return funcionarioEncontrado;
     }
 
     calcularSalarioMensal(): number{
