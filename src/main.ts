@@ -9,12 +9,7 @@ while(true) {
     const opcao = prompt("Digite 1 para adicionar funcionário ou 9 para sair");
 
     if(opcao === "1") {
-        const nome = prompt("Digite o nome do funcionário");
-        const cargo = prompt("Digite o cargo do funcionário");
-        const taxaHoraria = parseInt(prompt("Digite a taxa horária do funcionário"));
-
-        const funcionario = new Funcionario(nome, cargo, taxaHoraria);
-        listaFuncionarios.push(funcionario);
+        adicionarFuncionario();
     } 
     else if(opcao === "2") {
         listaFuncionarios.forEach(funcionario => {
@@ -28,6 +23,16 @@ while(true) {
     }
 
 }
+
+function adicionarFuncionario() {
+    const nome = prompt("Digite o nome do funcionário");
+    const cargo = prompt("Digite o cargo do funcionário");
+    const taxaHoraria = parseInt(prompt("Digite a taxa horária do funcionário"));
+
+    let funcionario = new Funcionario(nome, cargo, taxaHoraria);
+    listaFuncionarios.push(funcionario);
+}
+
 /* 
     // registro as horas trabalhadas
     const funcionarioHoraRegistrada = funcionario.registrarHoras(8 , listaFuncionarios, "monica couto");

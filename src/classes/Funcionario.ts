@@ -32,35 +32,14 @@ export default class Funcionario {
     }
 
     //Metodos
-    adicionarFuncionario() {
-
-    }
-
-    localizarFuncionarioPorNome(nome: string, listaFuncionarios: Funcionario[]): Funcionario | null {
-        const funcionario = listaFuncionarios.find(funcionario => funcionario.nome === nome);
-        
-        if (funcionario) {
-            return funcionario;
+    registrarHoras(numHoras: number){
+        if (this.id === idFuncionario) {
+            this.horasTrabalhadas?.push(numHoras);
+            return this;
         } else {
             console.log("Funcionário não encontrado!!!");
             return null;
         }
-    }
-
-    registrarHoras(horaTrabalhada: number, listaObjeto: Funcionario[], nome: string): Funcionario | null {
-        let funcionarioEncontrado = this.localizarFuncionarioPorNome(nome, listaObjeto);
-
-        console.log(">>> Funcionario Encontrado: " + funcionarioEncontrado?.getDetalhes());
-
-       if(funcionarioEncontrado === null) {
-            return null;
-       }
-
-        funcionarioEncontrado.setHorasTrabalhadas(horaTrabalhada);
-
-        console.log(">>> Horas Trabalhadas: " + funcionarioEncontrado.horasTrabalhadas);
-        console.log(">>> Funcionario Encontrado: " + funcionarioEncontrado.getDetalhes());
-        return funcionarioEncontrado;
     }
 
     calcularSalarioMensal(): number{
