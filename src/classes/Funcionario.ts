@@ -16,6 +16,10 @@ export default class Funcionario {
     }
 
     //Getters
+    getId(): string {
+        return this.id;
+    }
+
     getNome(): string {
         return this.nome;
     }
@@ -32,14 +36,18 @@ export default class Funcionario {
     }
 
     //Metodos
-    registrarHoras(numHoras: number){
-        if (this.id === idFuncionario) {
-            this.horasTrabalhadas?.push(numHoras);
-            return this;
-        } else {
-            console.log("Funcionário não encontrado!!!");
-            return null;
-        }
+    localizarFuncionarioPorNome(nome: string, listaFuncionarios: Funcionario[]) {
+        return listaFuncionarios.find(funcionario => funcionario.getNome() === nome);
+    }
+    
+    localizarFuncionarioPorId(id:string, listaFuncionarios: Funcionario[]) {
+        return listaFuncionarios.find(funcionario => funcionario.getId() === id);
+    }
+
+    registrarHoras(numHoras: number): void {
+        
+        this.setHorasTrabalhadas(numHoras);
+
     }
 
     calcularSalarioMensal(): number{

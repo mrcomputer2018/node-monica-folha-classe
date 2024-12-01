@@ -6,12 +6,25 @@ const prompt = promptSync();
 let listaFuncionarios: Funcionario[] = [];
 
 while(true) { 
-    const opcao = prompt("Digite 1 para adicionar funcionário ou 9 para sair");
+    const opcao = prompt("Digite uma opção: 1 - Adicionar Funcionário, \n8 - Listar Funcionários, \n9 - Sair");
 
     if(opcao === "1") {
         adicionarFuncionario();
-    } 
+    }
     else if(opcao === "2") {
+        const idFuncionario: string = prompt("Digite o id do funcionário");
+        const horaTrabalhada:number = parseInt(prompt("Digite a quantidade de horas trabalhadas"));
+
+        let funcionarioEncontrado: Funcionario | undefined = listaFuncionarios.find(funcionario => funcionario.getId() === idFuncionario);
+        if (funcionarioEncontrado) {
+            funcionarioEncontrado.registrarHoras(horaTrabalhada);
+        } else {
+            console.log("Funcionário não encontrado");
+        }
+       
+
+    } 
+    else if(opcao === "8") {
         listaFuncionarios.forEach(funcionario => {
             console.log(funcionario.getDetalhes());
         });
@@ -32,7 +45,6 @@ function adicionarFuncionario() {
     let funcionario = new Funcionario(nome, cargo, taxaHoraria);
     listaFuncionarios.push(funcionario);
 }
-
 /* 
     // registro as horas trabalhadas
     const funcionarioHoraRegistrada = funcionario.registrarHoras(8 , listaFuncionarios, "monica couto");
